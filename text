@@ -1,0 +1,133 @@
+Capstone Project Requirement
+Application to Be Tested – URL
+Coach
+https://www.coach.com
+
+
+UI Automation using Selenium with Python (Pytest & Robot Framework)
+
+Project Title
+E-Commerce Application – End-to-End UI Automation Capstone Project
+
+Project Overview
+The objective of this capstone project is to design, develop, and execute an end-to-end UI automation framework for a generic E-Commerce web application using the following technologies:
+Selenium WebDriver with Python
+Pytest Framework
+Robot Framework
+The project demonstrates real-world automation practices, including:
+Page Object Model (POM)
+Data-driven testing
+Configuration management
+Screenshot handling
+Reporting
+CI-ready test execution
+This automation framework should be reusable, scalable, and adaptable for any standard e-commerce application.
+
+Application Under Test (AUT)
+Generic E-Commerce Web Application
+(The specific e-commerce site will be mentioned above)
+User Roles
+Customer / End User
+Seller / Vendor
+Admin
+
+Functional Scope (Features to Automate)
+End-to-End Scenarios (Minimum 5)
+#
+Scenario
+Description
+1
+User Registration & Login
+User registers and logs into the application successfully
+2
+Product Search & Product Details
+User searches for a product and views product details
+3
+Add to Cart
+User adds one or more products to the shopping cart
+4
+Update Cart & Remove Item
+User updates product quantity and removes items from the cart
+5
+User Logout & Session Validation
+User logs out and session is terminated properly
+
+
+Automation Scope
+Framework 1: Selenium with Python + Pytest
+Key Requirements
+Page Object Model (POM)
+Pytest fixtures for setup and teardown
+Parameterized test cases
+Externalized configuration (config.ini)
+Separate test data files (JSON / CSV)
+Screenshot capture on test failure
+Custom HTML reports (pytest-html / Allure)
+Multiple assertions per test case
+Modular and reusable components
+Sample Folder Structure
+pytest-framework/
+├── config/
+├── data/
+├── pages/
+├── tests/
+├── reports/
+├── screenshots/
+├── utilities/
+└── pytest.ini
+
+Framework 2: Selenium with Python + Robot Framework
+Key Requirements
+Keyword-driven testing approach
+SeleniumLibrary
+Resource and variable files
+Data-driven testing using DataDriver
+Suite and test setup/teardown
+Screenshot capture for failed test steps
+Default Robot Framework reports and logs
+Reusable keywords
+Modular test suites
+Sample Folder Structure
+robot-framework/
+├── tests/
+├── keywords/
+├── resources/
+├── variables/
+├── reports/
+└── output.xml
+
+Common Automation Requirements (Applicable to Both Frameworks)
+Use multiple locator strategies (id, name, xpath, cssSelector)
+Implement explicit waits
+Browser configuration should be externalized (Chrome / Firefox)
+Cross-browser support (optional)
+Follow Python, Selenium, and automation best practices
+Add meaningful logging
+Tests should be executable from the command line
+
+Test Execution
+Pytest Execution
+pytest -v --html=reports/report.html
+Robot Framework Execution
+robot -d reports tests/
+
+Deliverables
+UI automation framework using Pytest
+UI automation framework using Robot Framework
+Automated test cases for all five end-to-end scenarios
+HTML execution reports
+Screenshots for failed test cases
+Git repository with proper documentation
+
+Evaluation Criteria
+Framework design and folder structure
+Code reusability and modularization
+Usage of Page Object Model and reusable keywords
+Test coverage and assertion quality
+Reporting and failure handling
+Adherence to automation best practices
+
+Outcome
+By completing this capstone project, learners will gain hands-on experience in building industry-standard UI automation frameworks using Selenium with Python, preparing them for real-time automation testing roles.
+
+
