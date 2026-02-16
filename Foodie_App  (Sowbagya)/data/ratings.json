@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "order_id": 2,
+        "rating": 5,
+        "comment": "Very tasty biryani!"
+    },
+    {
+        "id": 2,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 3,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 4,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 5,
+        "order_id": 11,
+        "rating": "5",
+        "comment": "Excellent"
+    },
+    {
+        "id": 6,
+        "order_id": 12,
+        "rating": 5,
+        "comment": "Very tasty fried rice!"
+    },
+    {
+        "id": 7,
+        "order_id": 12,
+        "rating": 5,
+        "comment": "Very tasty fried rice!"
+    },
+    {
+        "id": 8,
+        "order_id": 15,
+        "rating": "5",
+        "comment": "Excellent"
+    },
+    {
+        "id": 9,
+        "order_id": 17,
+        "rating": "5",
+        "comment": "Excellent"
+    },
+    {
+        "id": 10,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 11,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 12,
+        "order_id": 1,
+        "rating": 5,
+        "comment": "Excellent!"
+    },
+    {
+        "id": 13,
+        "order_id": 22,
+        "rating": "5",
+        "comment": "Excellent"
+    }
+]

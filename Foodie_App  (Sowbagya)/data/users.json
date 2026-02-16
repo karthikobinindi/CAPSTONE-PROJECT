@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "Sowbagya",
+        "email": "sowbagya@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 2,
+        "name": "Reshmi",
+        "email": "reshmi@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 3,
+        "name": "UserJSON",
+        "email": "userjson@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 4,
+        "name": "RobotUser",
+        "email": "robotjson@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 5,
+        "name": "RobotUser3637",
+        "email": "robot3637@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 6,
+        "name": "RobotUser9749",
+        "email": "robot9749@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 7,
+        "name": "Priya",
+        "email": "priya2026@gmail.com",
+        "password": "priya@123"
+    },
+    {
+        "id": 8,
+        "name": "Neha",
+        "email": "neha2026@gmail.com",
+        "password": "neha@123"
+    },
+    {
+        "id": 9,
+        "name": "RobotUser7758",
+        "email": "robot7758@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 10,
+        "name": "RobotUser7173",
+        "email": "robot7173@gmail.com",
+        "password": "12345"
+    },
+    {
+        "id": 11,
+        "name": "RobotUser6826",
+        "email": "robot6826@gmail.com",
+        "password": "12345"
+    }
+]

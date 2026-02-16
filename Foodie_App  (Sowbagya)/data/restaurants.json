@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "name": "A2B",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": false,
+        "is_approved": true
+    },
+    {
+        "id": 2,
+        "name": "Buhari Hotel",
+        "category": "Non-Veg",
+        "location": "Chennai",
+        "contact": "9876543212",
+        "is_active": true,
+        "is_approved": true
+    },
+    {
+        "id": 3,
+        "name": "Dominos Pizza",
+        "category": "Fast Food",
+        "location": "Tambaram",
+        "contact": "9876543213",
+        "is_active": true,
+        "is_approved": true
+    },
+    {
+        "id": 4,
+        "name": "Test Restaurant JSON",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9999999999",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 5,
+        "name": "RobotJSONRest",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 6,
+        "name": "RobotRest8505",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 7,
+        "name": "RobotRest8586",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 8,
+        "name": "New Moon Restaurant Updated",
+        "category": "Non-Veg",
+        "location": "OMR",
+        "contact": "9000099999",
+        "is_active": false,
+        "is_approved": true
+    },
+    {
+        "id": 9,
+        "name": "Ponram",
+        "category": "Non-Veg",
+        "location": "Dindigul",
+        "contact": "9123489789",
+        "is_active": false,
+        "is_approved": false
+    },
+    {
+        "id": 10,
+        "name": "RobotRest1064",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 11,
+        "name": "RobotRest3178",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": true,
+        "is_approved": false
+    },
+    {
+        "id": 12,
+        "name": "RobotRest2353",
+        "category": "Veg",
+        "location": "Chennai",
+        "contact": "9876543210",
+        "is_active": true,
+        "is_approved": false
+    }
+]

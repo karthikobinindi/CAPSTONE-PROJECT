@@ -1,0 +1,155 @@
+[
+    {
+        "id": 2,
+        "restaurant_id": 1,
+        "name": "Dosa",
+        "type": "Breakfast",
+        "price": 50,
+        "available_time": "Morning",
+        "enabled": true
+    },
+    {
+        "id": 3,
+        "restaurant_id": 2,
+        "name": "Chicken Biryani",
+        "type": "Lunch",
+        "price": 180,
+        "available_time": "Afternoon",
+        "enabled": true
+    },
+    {
+        "id": 4,
+        "restaurant_id": 3,
+        "name": "Cheese Pizza",
+        "type": "Fast Food",
+        "price": 250,
+        "available_time": "All Day",
+        "enabled": true
+    },
+    {
+        "id": 5,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": true
+    },
+    {
+        "id": 6,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": true
+    },
+    {
+        "id": 7,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": false
+    },
+    {
+        "id": 8,
+        "restaurant_id": 1,
+        "name": "Robot Dish",
+        "type": "Lunch",
+        "price": "120",
+        "available_time": "Afternoon",
+        "enabled": true
+    },
+    {
+        "id": 9,
+        "restaurant_id": 1,
+        "name": "Robot Dish Updated",
+        "type": "Dinner",
+        "price": "200",
+        "available_time": "Evening",
+        "enabled": true
+    },
+    {
+        "id": 10,
+        "restaurant_id": 1,
+        "name": "Robot Dish3",
+        "type": "Snack",
+        "price": "80",
+        "available_time": "Evening",
+        "enabled": false
+    },
+    {
+        "id": 11,
+        "restaurant_id": 1,
+        "name": "Robot Dish4",
+        "type": "Breakfast",
+        "price": "60",
+        "available_time": "Morning",
+        "enabled": true
+    },
+    {
+        "id": 12,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": true
+    },
+    {
+        "id": 13,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": true
+    },
+    {
+        "id": 14,
+        "restaurant_id": 1,
+        "name": "Pizza",
+        "type": "Fast Food",
+        "price": 120,
+        "available_time": "Night",
+        "enabled": true
+    },
+    {
+        "id": 15,
+        "restaurant_id": 1,
+        "name": "Robot Dish",
+        "type": "Lunch",
+        "price": "120",
+        "available_time": "Afternoon",
+        "enabled": true
+    },
+    {
+        "id": 16,
+        "restaurant_id": 1,
+        "name": "Robot Dish Updated",
+        "type": "Dinner",
+        "price": "200",
+        "available_time": "Evening",
+        "enabled": true
+    },
+    {
+        "id": 17,
+        "restaurant_id": 1,
+        "name": "Robot Dish3",
+        "type": "Snack",
+        "price": "80",
+        "available_time": "Evening",
+        "enabled": false
+    },
+    {
+        "id": 18,
+        "restaurant_id": 1,
+        "name": "Robot Dish4",
+        "type": "Breakfast",
+        "price": "60",
+        "available_time": "Morning",
+        "enabled": true
+    }
+]
