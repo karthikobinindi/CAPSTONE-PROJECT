@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.9 on win32)" generated="2026-02-16T12:53:44.124719" rpa="false" schemaversion="5">
+<suite id="s1" name="Restaurant" source="C:\Users\marri\PycharmProjects\PythonProject2\foodie_app\robot\restaurant.robot">
+<test id="s1-t1" name="Add Restaurant" line="9">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-16T12:53:44.349386" level="INFO">Creating Session using : alias=foodie, url=http://localhost:5001, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-16T12:53:44.349386" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T12:53:44.350889" level="INFO">${body} = {'name': 'Robot Hotel'}</msg>
+<var>${body}</var>
+<arg>name=Robot Hotel</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T12:53:44.350889" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T12:53:44.350889" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T12:53:44.350889" elapsed="0.001251"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-16T12:53:46.416317" level="INFO">POST Request : url=http://localhost:5001/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '23'} 
+ body=b'{"name": "Robot Hotel"}' 
+ </msg>
+<msg time="2026-02-16T12:53:46.416317" level="INFO">POST Response : url=http://localhost:5001/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.11.9', 'Date': 'Mon, 16 Feb 2026 07:23:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '169', 'Connection': 'close'} 
+ body={
+  "approved": false,
+  "category": "",
+  "contact": "",
+  "enabled": true,
+  "id": "873fd025-0f8b-4560-82c8-3c619b749f31",
+  "location": "",
+  "name": "Robot Hotel"
+}
+ 
+ </msg>
+<msg time="2026-02-16T12:53:46.416317" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-16T12:53:44.352140" elapsed="2.064177"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-16T12:53:46.417822" level="INFO">{
+  "approved": false,
+  "category": "",
+  "contact": "",
+  "enabled": true,
+  "id": "873fd025-0f8b-4560-82c8-3c619b749f31",
+  "location": "",
+  "name": "Robot Hotel"
+}
+</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-16T12:53:46.416317" elapsed="0.001505"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-16T12:53:46.417822" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-16T12:53:46.417822" elapsed="0.001491"/>
+</kw>
+<status status="PASS" start="2026-02-16T12:53:44.348295" elapsed="2.071018"/>
+</test>
+<status status="PASS" start="2026-02-16T12:53:44.128229" elapsed="2.292090"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Restaurant" id="s1" pass="1" fail="0" skip="0">Restaurant</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
