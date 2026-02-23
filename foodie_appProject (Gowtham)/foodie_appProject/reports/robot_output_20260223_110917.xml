@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.10 on win32)" generated="2026-02-23T11:09:18.184188" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests">
+<suite id="s1-s1" name="Admin" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\admin.robot">
+<test id="s1-s1-t1" name="View Admin Feedback" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.695161" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:18.695161" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.693999" elapsed="0.002167"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.714615" level="INFO">GET Request : url=http://127.0.0.1:5000/api/v1/admin/feedback 
+ path_url=/api/v1/admin/feedback 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:09:18.714615" level="INFO">GET Response : url=http://127.0.0.1:5000/api/v1/admin/feedback 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '483', 'Connection': 'close'} 
+ body=[
+  {
+    "comment": "Excellent food",
+    "order_id": 1,
+    "rating": 5,
+    "rating_id": 1
+  },
+  {
+    "comment": "Excellent food",
+    "order_id": 4,
+    "rating": 5,
+    "rating_id": 2
+  },
+  {
+    "comment": "Excellent food",
+    "order_id": 5,
+    "rating": 5,
+    "rating_id": 3
+  },
+  {
+    "comment": "Excellent food",
+    "order_id": 6,
+    "rating": 5,
+    "rating_id": 4
+  },
+  {
+    "comment": "Excellent",
+    "order_id": 8,
+    "rating": 5,
+    "rating_id": 5
+  }
+]
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.716155" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/api/v1/admin/feedback</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.696166" elapsed="0.019989"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.716155" elapsed="0.001146"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.692999" elapsed="0.024302"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:18.262304" elapsed="0.456194"/>
+</suite>
+<suite id="s1-s2" name="Dish" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\dish.robot">
+<test id="s1-s2-t1" name="Add Dish" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.730331" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:18.729294" elapsed="0.001037"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.728292" elapsed="0.002039"/>
+</kw>
+<kw name="Generate Random Name" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.732556" level="INFO">${rand} = 2145</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(1000,9999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.731387" elapsed="0.001169"/>
+</kw>
+<return>
+<value>${rand}</value>
+<status status="PASS" start="2026-02-23T11:09:18.732556" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-23T11:09:18.733894" level="INFO">${rand} = 2145</msg>
+<var>${rand}</var>
+<status status="PASS" start="2026-02-23T11:09:18.731387" elapsed="0.002507"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.733894" level="INFO">${rname} = DishRest_2145</msg>
+<var>${rname}</var>
+<arg>DishRest_${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.733894" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.736605" level="INFO">${restaurant} = {'name': 'DishRest_2145', 'category': 'Veg', 'location': 'Hyderabad'}</msg>
+<var>${restaurant}</var>
+<arg>name=${rname}</arg>
+<arg>category=Veg</arg>
+<arg>location=Hyderabad</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.735403" elapsed="0.001202"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.767931" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
+ body=b'{"name": "DishRest_2145", "category": "Veg", "location": "Hyderabad"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.767931" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '42', 'Connection': 'close'} 
+ body={
+  "id": 15,
+  "name": "DishRest_2145"
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.767931" level="INFO">${r_resp} = &lt;Response [201]&gt;</msg>
+<var>${r_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants</arg>
+<arg>json=${restaurant}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.737820" elapsed="0.030111"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.769441" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.770459" level="INFO">To JSON using : content={
+  "id": 15,
+  "name": "DishRest_2145"
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.770459" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.770459" level="INFO">${r_json} = {'id': 15, 'name': 'DishRest_2145'}</msg>
+<var>${r_json}</var>
+<arg>${r_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.767931" elapsed="0.003523"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.771454" level="INFO">${restaurant_id} = 15</msg>
+<var>${restaurant_id}</var>
+<arg>${r_json["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.771454" elapsed="0.001513"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.774037" level="INFO">${dish} = {'name': 'Paneer Biryani', 'price': '250'}</msg>
+<var>${dish}</var>
+<arg>name=Paneer Biryani</arg>
+<arg>price=250</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.772967" elapsed="0.001070"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.803403" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/restaurants/15/dishes 
+ path_url=/api/v1/restaurants/15/dishes 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Paneer Biryani", "price": "250"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.803403" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/restaurants/15/dishes 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '19', 'Connection': 'close'} 
+ body={
+  "dish_id": 8
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.803403" level="INFO">${d_resp} = &lt;Response [201]&gt;</msg>
+<var>${d_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants/${restaurant_id}/dishes</arg>
+<arg>json=${dish}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.775051" elapsed="0.029963"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${d_resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.805014" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.727250" elapsed="0.078832"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:18.719498" elapsed="0.087603"/>
+</suite>
+<suite id="s1-s3" name="Order" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\order.robot">
+<test id="s1-s3-t1" name="Place Order" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.818905" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:18.818905" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.818905" elapsed="0.001004"/>
+</kw>
+<kw name="Generate Random Name" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.821907" level="INFO">${rand} = 8267</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(1000,9999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.820909" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${rand}</value>
+<status status="PASS" start="2026-02-23T11:09:18.821907" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-23T11:09:18.821907" level="INFO">${rand} = 8267</msg>
+<var>${rand}</var>
+<status status="PASS" start="2026-02-23T11:09:18.819909" elapsed="0.001998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.823435" level="INFO">${restaurant} = {'name': 'OrderRest_8267', 'category': 'Veg', 'location': 'Hyderabad'}</msg>
+<var>${restaurant}</var>
+<arg>name=OrderRest_${rand}</arg>
+<arg>category=Veg</arg>
+<arg>location=Hyderabad</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.823435" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.844387" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '70', 'Content-Type': 'application/json'} 
+ body=b'{"name": "OrderRest_8267", "category": "Veg", "location": "Hyderabad"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.844387" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "id": 16,
+  "name": "OrderRest_8267"
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.844387" level="INFO">${r_resp} = &lt;Response [201]&gt;</msg>
+<var>${r_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants</arg>
+<arg>json=${restaurant}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.824919" elapsed="0.019468"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.845405" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.846510" level="INFO">To JSON using : content={
+  "id": 16,
+  "name": "OrderRest_8267"
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.846510" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.846510" level="INFO">${r_json} = {'id': 16, 'name': 'OrderRest_8267'}</msg>
+<var>${r_json}</var>
+<arg>${r_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.845405" elapsed="0.001105"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.848691" level="INFO">${restaurant_id} = 16</msg>
+<var>${restaurant_id}</var>
+<arg>${r_json["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.847518" elapsed="0.001173"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.849719" level="INFO">${email} = user_8267@test.com</msg>
+<var>${email}</var>
+<arg>user_${rand}@test.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.849719" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.850706" level="INFO">${user} = {'name': 'OrderUser', 'email': 'user_8267@test.com', 'password': '1234'}</msg>
+<var>${user}</var>
+<arg>name=OrderUser</arg>
+<arg>email=${email}</arg>
+<arg>password=1234</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.850706" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.874035" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/users/register 
+ path_url=/api/v1/users/register 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '72', 'Content-Type': 'application/json'} 
+ body=b'{"name": "OrderUser", "email": "user_8267@test.com", "password": "1234"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.874035" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/users/register 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '20', 'Connection': 'close'} 
+ body={
+  "user_id": 10
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.874035" level="INFO">${u_resp} = &lt;Response [201]&gt;</msg>
+<var>${u_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/users/register</arg>
+<arg>json=${user}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.851826" elapsed="0.022209"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.875030" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.876543" level="INFO">To JSON using : content={
+  "user_id": 10
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.876543" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.876543" level="INFO">${u_json} = {'user_id': 10}</msg>
+<var>${u_json}</var>
+<arg>${u_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.875030" elapsed="0.001513"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.877557" level="INFO">${user_id} = 10</msg>
+<var>${user_id}</var>
+<arg>${u_json["user_id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.876543" elapsed="0.002032"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.880077" level="INFO">${order} = {'user_id': 10, 'restaurant_id': 16}</msg>
+<var>${order}</var>
+<arg>user_id=${user_id}</arg>
+<arg>restaurant_id=${restaurant_id}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.878575" elapsed="0.001502"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.899669" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/orders 
+ path_url=/api/v1/orders 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '36', 'Content-Type': 'application/json'} 
+ body=b'{"user_id": 10, "restaurant_id": 16}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.899669" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/orders 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '20', 'Connection': 'close'} 
+ body={
+  "order_id": 9
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.899669" level="INFO">${o_resp} = &lt;Response [201]&gt;</msg>
+<var>${o_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/orders</arg>
+<arg>json=${order}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.880077" elapsed="0.019592"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${o_resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.901186" elapsed="0.001019"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.817703" elapsed="0.085499"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:18.809139" elapsed="0.094063"/>
+</suite>
+<suite id="s1-s4" name="Rating" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\rating.robot">
+<test id="s1-s4-t1" name="Give Rating" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.913986" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:18.913986" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.911862" elapsed="0.002124"/>
+</kw>
+<kw name="Generate Random Name" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.915989" level="INFO">${rand} = 1971</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(1000,9999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.915008" elapsed="0.000981"/>
+</kw>
+<return>
+<value>${rand}</value>
+<status status="PASS" start="2026-02-23T11:09:18.915989" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-23T11:09:18.915989" level="INFO">${rand} = 1971</msg>
+<var>${rand}</var>
+<status status="PASS" start="2026-02-23T11:09:18.915008" elapsed="0.000981"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.917987" level="INFO">${restaurant} = {'name': 'RatingRest_1971', 'category': 'Veg', 'location': 'Hyderabad'}</msg>
+<var>${restaurant}</var>
+<arg>name=RatingRest_${rand}</arg>
+<arg>category=Veg</arg>
+<arg>location=Hyderabad</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.916984" elapsed="0.001003"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.934972" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
+ body=b'{"name": "RatingRest_1971", "category": "Veg", "location": "Hyderabad"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.934972" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '44', 'Connection': 'close'} 
+ body={
+  "id": 17,
+  "name": "RatingRest_1971"
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.934972" level="INFO">${r_resp} = &lt;Response [201]&gt;</msg>
+<var>${r_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants</arg>
+<arg>json=${restaurant}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.917987" elapsed="0.016985"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.935988" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.937019" level="INFO">To JSON using : content={
+  "id": 17,
+  "name": "RatingRest_1971"
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.937019" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.938021" level="INFO">${r_json} = {'id': 17, 'name': 'RatingRest_1971'}</msg>
+<var>${r_json}</var>
+<arg>${r_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.935988" elapsed="0.002033"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.939014" level="INFO">${restaurant_id} = 17</msg>
+<var>${restaurant_id}</var>
+<arg>${r_json["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.938021" elapsed="0.000993"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.939014" level="INFO">${email} = user_1971@test.com</msg>
+<var>${email}</var>
+<arg>user_${rand}@test.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.939014" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.940528" level="INFO">${user} = {'name': 'RatingUser', 'email': 'user_1971@test.com', 'password': '1234'}</msg>
+<var>${user}</var>
+<arg>name=RatingUser</arg>
+<arg>email=${email}</arg>
+<arg>password=1234</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.940528" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.957578" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/users/register 
+ path_url=/api/v1/users/register 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '73', 'Content-Type': 'application/json'} 
+ body=b'{"name": "RatingUser", "email": "user_1971@test.com", "password": "1234"}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.957578" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/users/register 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '20', 'Connection': 'close'} 
+ body={
+  "user_id": 11
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.958721" level="INFO">${u_resp} = &lt;Response [201]&gt;</msg>
+<var>${u_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/users/register</arg>
+<arg>json=${user}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.942011" elapsed="0.016710"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.958721" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.959706" level="INFO">To JSON using : content={
+  "user_id": 11
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.959706" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.959706" level="INFO">${u_json} = {'user_id': 11}</msg>
+<var>${u_json}</var>
+<arg>${u_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.958721" elapsed="0.000985"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.962409" level="INFO">${user_id} = 11</msg>
+<var>${user_id}</var>
+<arg>${u_json["user_id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.961106" elapsed="0.001303"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.964410" level="INFO">${order} = {'user_id': 11, 'restaurant_id': 17}</msg>
+<var>${order}</var>
+<arg>user_id=${user_id}</arg>
+<arg>restaurant_id=${restaurant_id}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.963406" elapsed="0.001004"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.981200" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/orders 
+ path_url=/api/v1/orders 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '36', 'Content-Type': 'application/json'} 
+ body=b'{"user_id": 11, "restaurant_id": 17}' 
+ </msg>
+<msg time="2026-02-23T11:09:18.981200" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/orders 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '21', 'Connection': 'close'} 
+ body={
+  "order_id": 10
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:18.981200" level="INFO">${o_resp} = &lt;Response [201]&gt;</msg>
+<var>${o_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/orders</arg>
+<arg>json=${order}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.964923" elapsed="0.016277"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:18.982703" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.983707" level="INFO">To JSON using : content={
+  "order_id": 10
+}
+ </msg>
+<msg time="2026-02-23T11:09:18.983707" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-02-23T11:09:18.983707" level="INFO">${o_json} = {'order_id': 10}</msg>
+<var>${o_json}</var>
+<arg>${o_resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.982703" elapsed="0.001004"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.984774" level="INFO">${order_id} = 10</msg>
+<var>${order_id}</var>
+<arg>${o_json["order_id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.984774" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:18.986294" level="INFO">${rating} = {'order_id': 10, 'rating': '5', 'comment': 'Excellent'}</msg>
+<var>${rating}</var>
+<arg>order_id=${order_id}</arg>
+<arg>rating=5</arg>
+<arg>comment=Excellent</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.986294" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:19.007601" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/ratings 
+ path_url=/api/v1/ratings 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '55', 'Content-Type': 'application/json'} 
+ body=b'{"order_id": 10, "rating": "5", "comment": "Excellent"}' 
+ </msg>
+<msg time="2026-02-23T11:09:19.007601" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/ratings 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:19 GMT', 'Content-Type': 'application/json', 'Content-Length': '21', 'Connection': 'close'} 
+ body={
+  "rating_id": 6
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:19.007601" level="INFO">${rating_resp} = &lt;Response [201]&gt;</msg>
+<var>${rating_resp}</var>
+<arg>foodie</arg>
+<arg>/api/v1/ratings</arg>
+<arg>json=${rating}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:18.987345" elapsed="0.020256"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${rating_resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.007601" elapsed="0.001057"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:18.910352" elapsed="0.098306"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:18.904667" elapsed="0.104990"/>
+</suite>
+<suite id="s1-s5" name="Restaurant" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\restaurant.robot">
+<test id="s1-s5-t1" name="Register Restaurant" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:19.022466" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:19.022466" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:19.021249" elapsed="0.002386"/>
+</kw>
+<kw name="Generate Random Name" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.024629" level="INFO">${rand} = 2872</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(1000,9999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.024629" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${rand}</value>
+<status status="PASS" start="2026-02-23T11:09:19.026146" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-23T11:09:19.026146" level="INFO">${rand} = 2872</msg>
+<var>${rand}</var>
+<status status="PASS" start="2026-02-23T11:09:19.023635" elapsed="0.002511"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.027164" level="INFO">${name} = Restaurant_2872</msg>
+<var>${name}</var>
+<arg>Restaurant_${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.026146" elapsed="0.001018"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.028159" level="INFO">${payload} = {'name': 'Restaurant_2872', 'category': 'Veg', 'location': 'Hyderabad'}</msg>
+<var>${payload}</var>
+<arg>name=${name}</arg>
+<arg>category=Veg</arg>
+<arg>location=Hyderabad</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.028159" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:19.048823" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Restaurant_2872", "category": "Veg", "location": "Hyderabad"}' 
+ </msg>
+<msg time="2026-02-23T11:09:19.048823" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:19 GMT', 'Content-Type': 'application/json', 'Content-Length': '44', 'Connection': 'close'} 
+ body={
+  "id": 18,
+  "name": "Restaurant_2872"
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:19.048823" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/api/v1/restaurants</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.029159" elapsed="0.019664"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.048823" elapsed="0.001517"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:19.019859" elapsed="0.030481"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:19.011834" elapsed="0.039593"/>
+</suite>
+<suite id="s1-s6" name="User" source="C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\tests\user.robot">
+<test id="s1-s6-t1" name="Register User" line="6">
+<kw name="Create API Session" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:19.060984" level="INFO">Creating Session using : alias=foodie, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:09:19.060984" elapsed="0.001666"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:19.060984" elapsed="0.001666"/>
+</kw>
+<kw name="Generate Random Name" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.064152" level="INFO">${rand} = 9064</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(1000,9999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.062650" elapsed="0.001502"/>
+</kw>
+<return>
+<value>${rand}</value>
+<status status="PASS" start="2026-02-23T11:09:19.064152" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-23T11:09:19.064152" level="INFO">${rand} = 9064</msg>
+<var>${rand}</var>
+<status status="PASS" start="2026-02-23T11:09:19.062650" elapsed="0.001502"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.065258" level="INFO">${email} = user_9064@test.com</msg>
+<var>${email}</var>
+<arg>user_${rand}@test.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.065258" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:09:19.066681" level="INFO">${payload} = {'name': 'RobotUser', 'email': 'user_9064@test.com', 'password': '1234'}</msg>
+<var>${payload}</var>
+<arg>name=RobotUser</arg>
+<arg>email=${email}</arg>
+<arg>password=1234</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.065258" elapsed="0.001423"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:09:19.084857" level="INFO">POST Request : url=http://127.0.0.1:5000/api/v1/users/register 
+ path_url=/api/v1/users/register 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '72', 'Content-Type': 'application/json'} 
+ body=b'{"name": "RobotUser", "email": "user_9064@test.com", "password": "1234"}' 
+ </msg>
+<msg time="2026-02-23T11:09:19.085917" level="INFO">POST Response : url=http://127.0.0.1:5000/api/v1/users/register 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.12.10', 'Date': 'Mon, 23 Feb 2026 05:39:19 GMT', 'Content-Type': 'application/json', 'Content-Length': '20', 'Connection': 'close'} 
+ body={
+  "user_id": 12
+}
+ 
+ </msg>
+<msg time="2026-02-23T11:09:19.085917" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/api/v1/users/register</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.066681" elapsed="0.019236"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:09:19.085917" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:09:19.059993" elapsed="0.026924"/>
+</test>
+<status status="PASS" start="2026-02-23T11:09:19.052637" elapsed="0.035281"/>
+</suite>
+<status status="PASS" start="2026-02-23T11:09:18.186697" elapsed="0.903571"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="6" fail="0" skip="0">Tests</stat>
+<stat name="Admin" id="s1-s1" pass="1" fail="0" skip="0">Tests.Admin</stat>
+<stat name="Dish" id="s1-s2" pass="1" fail="0" skip="0">Tests.Dish</stat>
+<stat name="Order" id="s1-s3" pass="1" fail="0" skip="0">Tests.Order</stat>
+<stat name="Rating" id="s1-s4" pass="1" fail="0" skip="0">Tests.Rating</stat>
+<stat name="Restaurant" id="s1-s5" pass="1" fail="0" skip="0">Tests.Restaurant</stat>
+<stat name="User" id="s1-s6" pass="1" fail="0" skip="0">Tests.User</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-02-23T11:09:18.267682" level="WARN">Error in file 'C:\Users\obini\PycharmProjects\PythonProject\foodie_appProject\RobotTests\resources\keywords.robot' on line 12: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2026-02-23T11:09:18.769441" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.845405" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.875030" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.935988" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.958721" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-02-23T11:09:18.982703" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>

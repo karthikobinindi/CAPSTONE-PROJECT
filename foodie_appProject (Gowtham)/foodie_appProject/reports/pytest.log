@@ -1,0 +1,36 @@
+2026-02-23 10:43:50,748 | INFO | foodie_appProject.tests.test_admin | Fetching admin feedback...
+2026-02-23 10:43:50,757 | INFO | foodie_appProject.tests.test_admin | Admin Feedback Response: []
+2026-02-23 10:43:50,916 | INFO | foodie_appProject.tests.test_dish | Creating restaurant for dish test...
+2026-02-23 10:43:50,930 | INFO | foodie_appProject.tests.test_dish | Restaurant ID: 1
+2026-02-23 10:43:50,931 | INFO | foodie_appProject.tests.test_dish | Adding dish...
+2026-02-23 10:43:50,945 | INFO | foodie_appProject.tests.test_dish | Dish Response: {'dish_id': 1}
+2026-02-23 10:43:51,014 | INFO | foodie_appProject.tests.test_rating | Giving rating...
+2026-02-23 10:43:51,025 | INFO | foodie_appProject.tests.test_rating | Rating Response: {'rating_id': 1}
+2026-02-23 10:43:51,032 | INFO | foodie_appProject.tests.test_restaurant | Sending request to create restaurant
+2026-02-23 10:43:51,041 | INFO | foodie_appProject.tests.test_restaurant | Status Code: 201
+2026-02-23 10:43:51,041 | INFO | foodie_appProject.tests.test_restaurant | Response: {'id': 4, 'name': 'Restaurant_8238'}
+2026-02-23 10:43:51,042 | INFO | foodie_appProject.tests.test_restaurant | Restaurant creation test passed
+2026-02-23 10:43:51,045 | INFO | foodie_appProject.tests.test_user | Registering user...
+2026-02-23 10:43:51,055 | INFO | foodie_appProject.tests.test_user | User Response: {'user_id': 3}
+2026-02-23 10:53:34,164 | INFO | foodie_appProject.tests.test_admin | Fetching admin feedback
+2026-02-23 10:53:34,176 | INFO | foodie_appProject.tests.test_admin | Admin Feedback Response: []
+2026-02-23 10:53:34,197 | INFO | foodie_appProject.tests.test_dish | Restaurant created with ID: 1
+2026-02-23 10:53:34,207 | INFO | foodie_appProject.tests.test_dish | Dish Response: {'dish_id': 1}
+2026-02-23 10:53:34,240 | INFO | foodie_appProject.tests.test_order | Order Response: {'order_id': 1}
+2026-02-23 10:53:34,278 | INFO | foodie_appProject.tests.test_rating | Rating Response: {'rating_id': 1}
+2026-02-23 10:53:34,282 | INFO | foodie_appProject.tests.test_restaurant | Creating restaurant
+2026-02-23 10:53:34,292 | INFO | foodie_appProject.tests.test_restaurant | Status Code: 201
+2026-02-23 10:53:34,293 | INFO | foodie_appProject.tests.test_restaurant | Response: {'id': 4, 'name': 'Restaurant_4935'}
+2026-02-23 10:53:34,295 | INFO | foodie_appProject.tests.test_user | Registering user
+2026-02-23 10:53:34,305 | INFO | foodie_appProject.tests.test_user | User Response: {'user_id': 3}
+2026-02-23 11:23:20,371 | INFO | foodie_appProject.tests.test_admin | Fetching admin feedback
+2026-02-23 11:23:20,386 | INFO | foodie_appProject.tests.test_admin | Admin Feedback Response: []
+2026-02-23 11:23:20,411 | INFO | foodie_appProject.tests.test_dish | Restaurant created with ID: 1
+2026-02-23 11:23:20,428 | INFO | foodie_appProject.tests.test_dish | Dish Response: {'dish_id': 1}
+2026-02-23 11:23:20,473 | INFO | foodie_appProject.tests.test_order | Order Response: {'order_id': 1}
+2026-02-23 11:23:20,527 | INFO | foodie_appProject.tests.test_rating | Rating Response: {'rating_id': 1}
+2026-02-23 11:23:20,534 | INFO | foodie_appProject.tests.test_restaurant | Creating restaurant
+2026-02-23 11:23:20,549 | INFO | foodie_appProject.tests.test_restaurant | Status Code: 201
+2026-02-23 11:23:20,550 | INFO | foodie_appProject.tests.test_restaurant | Response: {'id': 4, 'name': 'Restaurant_1843'}
+2026-02-23 11:23:20,557 | INFO | foodie_appProject.tests.test_user | Registering user
+2026-02-23 11:23:20,575 | INFO | foodie_appProject.tests.test_user | User Response: {'user_id': 3}
