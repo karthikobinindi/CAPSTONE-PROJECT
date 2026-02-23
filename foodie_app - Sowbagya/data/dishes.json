@@ -1,0 +1,134 @@
+{
+  "dishes": [
+    {
+      "dish_id": "6124cc96-a283-4ab7-8bb5-c52cfab13d1b",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "Robot Burger",
+      "type": "Non-Veg",
+      "price": 199.0,
+      "available_time": "10:00-22:00",
+      "image": "burger.jpg",
+      "enabled": true
+    },
+    {
+      "dish_id": "b4ace04e-0dae-4588-a081-169462ba3330",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "Default Enabled Dish",
+      "type": "Veg",
+      "price": 100.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "36ed7f9a-fe26-46bc-9a44-fd98c06c3a0f",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "RF Updated Dish",
+      "type": "Veg",
+      "price": 250,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "595619d7-1dc0-47cb-b931-23fb731b03f8",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "RF Disable Dish",
+      "type": "Non-Veg",
+      "price": 120.0,
+      "available_time": "",
+      "image": "",
+      "enabled": false
+    },
+    {
+      "dish_id": "16f376fc-a02e-45d1-a73c-21b867ef87c3",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "RF Enable Dish",
+      "type": "Veg",
+      "price": 90.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "b1d4fe85-bdf4-40a0-8941-8acd1a65ef8b",
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "RF Status No Field",
+      "type": "Veg",
+      "price": 70.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "5bb45059-e18d-4856-b1c2-1ffdfb7061b5",
+      "restaurant_id": "2af06e6c-a4ef-40ed-a0a0-c04bbe7a9fee",
+      "name": "Suite Dish",
+      "type": "Veg",
+      "price": 150.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "8bb5b5b0-d45a-43f9-8a19-2595045effac",
+      "restaurant_id": "c5a8860e-4aec-436b-9bad-e80a9abebf25",
+      "name": "RF Order Dish",
+      "type": "Veg",
+      "price": 100.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "f061080f-3fd1-46cd-842e-0e0ed81613ea",
+      "restaurant_id": "60b3abda-e4df-475f-9dba-9d267ba1fea1",
+      "name": "Butter Chicken",
+      "type": "Non-Veg",
+      "price": 320.0,
+      "available_time": "11:00-23:00",
+      "image": "butter_chicken.jpg",
+      "enabled": true
+    },
+    {
+      "dish_id": "df1fe52f-8641-406e-b4bc-87771f6b2689",
+      "restaurant_id": "7bccce17-e681-4303-9ba5-ad99dc78b6f7",
+      "name": "Chicken Biriyani",
+      "type": "Non-Veg",
+      "price": 320.0,
+      "available_time": "11:00-23:00",
+      "image": "chicken_biriyani.jpg",
+      "enabled": true
+    },
+    {
+      "dish_id": "0260bccd-d724-4a58-a582-1f64648e32ac",
+      "restaurant_id": "abd48e2f-2bc1-4c50-8add-04f15f470c47",
+      "name": "Butter Chicken",
+      "type": "Non-Veg",
+      "price": 320.0,
+      "available_time": "11:00-23:00",
+      "image": "butter_chicken.jpg",
+      "enabled": true
+    },
+    {
+      "dish_id": "3a107a78-9fcd-4f73-a5b8-bb7f5bb9cf8a",
+      "restaurant_id": "239e6b75-a940-4ec5-8788-81516eff24f1",
+      "name": "Order Dish",
+      "type": "Veg",
+      "price": 120.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    },
+    {
+      "dish_id": "9eaa885b-15a3-4e3f-9c99-a7c231fce891",
+      "restaurant_id": "d3a5ddae-6bb2-4e7a-aef5-43225f32d88b",
+      "name": "Test Dish",
+      "type": "Veg",
+      "price": 150.0,
+      "available_time": "",
+      "image": "",
+      "enabled": true
+    }
+  ]
+}

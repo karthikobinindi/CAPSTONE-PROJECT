@@ -1,0 +1,16 @@
+{
+  "ratings": [
+    {
+      "rating_id": "594d1c2c-e6c6-4310-a60a-73e95b740428",
+      "order_id": "cc60ce63-1ade-4a90-8e8c-541d1d20c013",
+      "rating": 5,
+      "comment": "Excellent food and fast delivery!"
+    },
+    {
+      "rating_id": "7d5a13bd-6145-44ea-ad64-db7302ea73e7",
+      "order_id": "1d8179b2-363b-4ca1-9d2a-8de7e67a2fd5",
+      "rating": 5,
+      "comment": "Excellent food"
+    }
+  ]
+}

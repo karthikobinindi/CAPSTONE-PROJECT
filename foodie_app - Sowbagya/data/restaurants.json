@@ -1,0 +1,372 @@
+{
+  "restaurants": [
+    {
+      "restaurant_id": "e8e8c701-e550-4c76-ba50-8d73bf226f1b",
+      "name": "Admin Approve Test",
+      "category": "FastFood",
+      "location": "ApproveCity",
+      "images": [],
+      "contact": "1010101010",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "22eeafc9-34a9-4a06-b3da-de055eed74e0",
+      "name": "Status After Approve",
+      "category": "Italian",
+      "location": "StatusCity",
+      "images": [],
+      "contact": "1111111112",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "6f712768-b271-42f2-9454-be77f495deaf",
+      "name": "Multi Approve One",
+      "category": "Cafe",
+      "location": "CityA",
+      "images": [],
+      "contact": "2020202020",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "903640a3-2b64-4b7e-8920-f00d932399f6",
+      "name": "Multi Approve Two",
+      "category": "Bakery",
+      "location": "CityB",
+      "images": [],
+      "contact": "3030303030",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "561c8f43-ad12-45ea-87e2-e1956c7e6204",
+      "name": "Admin Disable Test",
+      "category": "Chinese",
+      "location": "DisableCity",
+      "images": [],
+      "contact": "4040404040",
+      "status": "disabled",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "314357e7-c5cb-4ce4-b454-fbd8d88f4b01",
+      "name": "Disable Flag Check",
+      "category": "Mexican",
+      "location": "FlagCity",
+      "images": [],
+      "contact": "5050505051",
+      "status": "disabled",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "0a8114ed-37fb-4857-b094-dfc820ce121b",
+      "name": "RF Dish Suite Restaurant",
+      "category": "Test",
+      "location": "RF City",
+      "images": [],
+      "contact": "5050505050",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "2af06e6c-a4ef-40ed-a0a0-c04bbe7a9fee",
+      "name": "RF Order Suite Rest",
+      "category": "Test",
+      "location": "Order Suite City",
+      "images": [],
+      "contact": "9191919191",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "fd7631b3-61e3-4da2-acf1-4ce1796fac42",
+      "name": "Empty Orders RF Rest",
+      "category": "Test",
+      "location": "Empty City",
+      "images": [],
+      "contact": "8080808080",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "f2959746-88c4-4587-9d29-3855c84dd85d",
+      "name": "RF Test Restaurant",
+      "category": "Fast Food",
+      "location": "Chennai RF",
+      "images": [],
+      "contact": "9000000001",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "9338a229-698e-448c-abaf-1f0fd2883d4b",
+      "name": "Name Check Restaurant",
+      "category": "Test",
+      "location": "Test City",
+      "images": [],
+      "contact": "1111111111",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "3b91b44c-33f4-46bc-a5c5-f6eda88bd9e7",
+      "name": "Pending Status Test",
+      "category": "Cafe",
+      "location": "Mumbai RF",
+      "images": [],
+      "contact": "2222222222",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "782c763d-81b8-4fcb-9941-acba0e9d9062",
+      "name": "Dup RF Rest",
+      "category": "Indian",
+      "location": "Dup City",
+      "images": [],
+      "contact": "3333333333",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "60b46c5d-dbb9-425f-89d2-ccac484789ef",
+      "name": "Updated RF Restaurant",
+      "category": "Indian",
+      "location": "Pune RF",
+      "images": [],
+      "contact": "5555555555",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "b15f104b-c3ea-4aea-8972-817af01bc5ae",
+      "name": "Disable RF Test",
+      "category": "Chinese",
+      "location": "Delhi RF",
+      "images": [],
+      "contact": "6666666666",
+      "status": "pending",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "23d2796d-064d-45bd-9455-d526f4ff64e3",
+      "name": "Disable Check RF",
+      "category": "Vegan",
+      "location": "Hyderabad RF",
+      "images": [],
+      "contact": "7777777777",
+      "status": "pending",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "cd2a7eee-0174-4600-9baf-d06a55f403d8",
+      "name": "View Test RF",
+      "category": "Desserts",
+      "location": "Kolkata RF",
+      "images": [],
+      "contact": "8888888888",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "aa4e5c8f-cc25-4cf1-aee6-50942e6b846b",
+      "name": "Search RF Resto",
+      "category": "Fast Food",
+      "location": "RF Search City",
+      "images": [],
+      "contact": "9090909090",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "c1d70c28-5c4c-447f-af83-2a0e4f091588",
+      "name": "RF User Search Resto",
+      "category": "Fast Food",
+      "location": "Search Town",
+      "images": [],
+      "contact": "6060606060",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "c5a8860e-4aec-436b-9bad-e80a9abebf25",
+      "name": "RF Order Prereq Rest",
+      "category": "Test",
+      "location": "Order City",
+      "images": [],
+      "contact": "7070707070",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "60b3abda-e4df-475f-9dba-9d267ba1fea1",
+      "name": "Garden Premium",
+      "category": "Fine Dining Indian",
+      "location": "Chennai - Anna Nagar",
+      "images": [
+        "spice_garden.jpg"
+      ],
+      "contact": "9876543299",
+      "status": "disabled",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "7bccce17-e681-4303-9ba5-ad99dc78b6f7",
+      "name": "Gold star",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [
+        "Gold star.jpg"
+      ],
+      "contact": "9345485085",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "e888917f-aa37-4d0b-b550-e29c6e7df90d",
+      "name": "Updated RF Restaurant",
+      "category": "Indian",
+      "location": "Pune RF",
+      "images": [],
+      "contact": "5555555555",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "f637a190-a22f-4be4-aee0-a89efb4bfb38",
+      "name": "Updated RF Restaurant",
+      "category": "Indian",
+      "location": "Pune RF",
+      "images": [],
+      "contact": "5555555555",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "d6b55334-aa5c-4ba7-b238-416729045085",
+      "name": "Admin Test Rest",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [],
+      "contact": "7000000001",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "81895712-0586-485d-ac79-b730cac202a2",
+      "name": "Admin Disable Rest",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [],
+      "contact": "7000000001",
+      "status": "disabled",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "abd48e2f-2bc1-4c50-8add-04f15f470c47",
+      "name": "Dish Test Rest",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [],
+      "contact": "8000000001",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "239e6b75-a940-4ec5-8788-81516eff24f1",
+      "name": "Order Test Rest",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [],
+      "contact": "5000000001",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "a6fe7759-dce4-4780-b2f6-9cfd130e0fae",
+      "name": "Spice Garden",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [
+        "spice.jpg"
+      ],
+      "contact": "9876543210",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "f002d258-d09b-444e-b211-9efcce031605",
+      "name": "New Name",
+      "category": "Gourmet",
+      "location": "Mumbai",
+      "images": [],
+      "contact": "9000000099",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "7308f73d-e3f8-4895-89b0-c6f314014f50",
+      "name": "To Disable",
+      "category": "Cafe",
+      "location": "Delhi",
+      "images": [],
+      "contact": "9000000002",
+      "status": "pending",
+      "enabled": false
+    },
+    {
+      "restaurant_id": "e7ccc88a-ecc5-4031-a9d6-cc5f66abe95e",
+      "name": "View Me",
+      "category": "Pizza",
+      "location": "Bangalore",
+      "images": [],
+      "contact": "9000000003",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "dfb54cce-a486-45c8-9f93-26e7cb26635c",
+      "name": "Search Result Rest",
+      "category": "Chinese",
+      "location": "Hyderabad",
+      "images": [],
+      "contact": "6000000002",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "d3a5ddae-6bb2-4e7a-aef5-43225f32d88b",
+      "name": "User Test Rest",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [],
+      "contact": "6000000001",
+      "status": "approved",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "e2d22397-1d9e-4819-8a04-b4660fa3869b",
+      "name": "New Name",
+      "category": "Gourmet",
+      "location": "Mumbai",
+      "images": [],
+      "contact": "9000000099",
+      "status": "pending",
+      "enabled": true
+    },
+    {
+      "restaurant_id": "c8c65f70-09ff-430d-9ad7-04cde0d0a541",
+      "name": "star",
+      "category": "Indian",
+      "location": "Chennai",
+      "images": [
+        "Gold star.jpg"
+      ],
+      "contact": "9345485085",
+      "status": "pending",
+      "enabled": true
+    }
+  ]
+}

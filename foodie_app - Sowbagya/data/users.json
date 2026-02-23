@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "user_id": "82c75ab6-b4a7-4c99-9f81-bfc7868e8c8e",
+      "name": "RF Suite User",
+      "email": "rfsuite@example.com",
+      "password": "Suite@RF123"
+    },
+    {
+      "user_id": "218f62c3-0aa1-43c4-b3b9-c8620fec5bf8",
+      "name": "Fresh RF User",
+      "email": "freshorder@example.com",
+      "password": "Fresh@456"
+    },
+    {
+      "user_id": "414f4bbf-3ffc-4224-8888-5e01aeb3e4ec",
+      "name": "RF Test User",
+      "email": "rftest@example.com",
+      "password": "RFPass@123"
+    },
+    {
+      "user_id": "7ad7bf9e-14c7-4915-aa20-c7b6021ec198",
+      "name": "RF Name Check",
+      "email": "rfnamecheck@example.com",
+      "password": "Pass@1234"
+    },
+    {
+      "user_id": "bc016d50-9922-476a-b395-aaf158c494a3",
+      "name": "RF No Pass",
+      "email": "rfnopass@example.com",
+      "password": "SecurePass@99"
+    },
+    {
+      "user_id": "b111447a-f1e2-4807-b2f3-2d000448bbcc",
+      "name": "Dup RF User",
+      "email": "duprf@example.com",
+      "password": "DupPass@1"
+    },
+    {
+      "user_id": "6763b2f9-ebce-4c42-80e8-45b56d82b7ac",
+      "name": "RF Order User",
+      "email": "rforderuser@example.com",
+      "password": "Order@RF123"
+    },
+    {
+      "user_id": "1b0a36a0-7e46-47c1-bfb2-d277b03a3985",
+      "name": "Arjun Kumar",
+      "email": "arjun@example.com",
+      "password": "Arjun@123"
+    },
+    {
+      "user_id": "70443276-270d-4c79-9514-8dcb647ce61f",
+      "name": "Order User",
+      "email": "order@user.com",
+      "password": "Pass@123"
+    },
+    {
+      "user_id": "4c9be100-053e-4924-a1d1-e90da4f16ceb",
+      "name": "Test User",
+      "email": "test@user.com",
+      "password": "Pass@123"
+    },
+    {
+      "user_id": "a5a70a7d-1991-4734-9371-a682cc3ee125",
+      "name": "Lokesh",
+      "email": "lokesh@example.com",
+      "password": "Lokesh@123"
+    }
+  ]
+}

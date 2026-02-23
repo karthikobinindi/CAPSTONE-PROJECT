@@ -1,0 +1,460 @@
+{
+  "info": {
+    "_postman_id": "foodie-app-data-entry",
+    "name": "Foodie App – Manual Data Entry",
+    "description": "Use this collection to manually enter data into the Foodie App.\n\nAll data submitted here is saved directly into the JSON files:\n  - data/restaurants.json\n  - data/dishes.json\n  - data/users.json\n  - data/orders.json\n  - data/ratings.json\n\nWorkflow:\n1. Start Flask server: python run.py\n2. Select environment: Foodie App – Local\n3. Use requests in order: Register → Approve → Add Dish → Register User → Place Order → Rate\n4. Copy IDs from responses and paste into environment variables\n\nNO automated tests are in this collection.\nAll testing is handled by Pytest and Robot Framework.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000" }
+  ],
+  "item": [
+
+    {
+      "name": "01 – Restaurant Module",
+      "description": "Manage restaurants. After registering, copy the restaurant_id from the response and paste it into the environment variable.",
+      "item": [
+
+        {
+          "name": "Register Restaurant",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Auto-save restaurant_id to environment after registration",
+                  "if (pm.response.code === 201) {",
+                  "    const json = pm.response.json();",
+                  "    pm.environment.set('restaurant_id', json.restaurant_id);",
+                  "    console.log('restaurant_id saved:', json.restaurant_id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Spice Garden\",\n  \"category\": \"Indian\",\n  \"location\": \"Chennai\",\n  \"images\": [\"spice_garden.jpg\"],\n  \"contact\": \"9876543210\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants"]
+            },
+            "description": "Register a new restaurant.\n\nSaved to: data/restaurants.json\nStatus on creation: 'pending' (must be approved by admin before orders can be placed)\n\nRequired fields: name, category, location, contact\nOptional fields: images (array)\n\n✅ Success: 201 Created\n❌ Missing fields: 400 Bad Request\n❌ Duplicate name+location: 409 Conflict"
+          }
+        },
+
+        {
+          "name": "Update Restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Spice Garden Premium\",\n  \"category\": \"Fine Dining Indian\",\n  \"location\": \"Chennai - Anna Nagar\",\n  \"contact\": \"9876543299\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/{{restaurant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "{{restaurant_id}}"]
+            },
+            "description": "Update any fields of an existing restaurant.\n\nSaved to: data/restaurants.json\nOnly the fields you include will be updated.\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Disable Restaurant (Owner)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/{{restaurant_id}}/disable",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "{{restaurant_id}}", "disable"]
+            },
+            "description": "Disable a restaurant (owner action).\n\nUpdated in: data/restaurants.json  →  enabled: false\n\n✅ Success: 200 OK  { \"message\": \"Restaurant disabled\" }\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "View Restaurant Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/{{restaurant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "{{restaurant_id}}"]
+            },
+            "description": "Fetch the full profile of a restaurant by its ID.\n\nReads from: data/restaurants.json\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Search Restaurants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/search?name=&location=&dish=&rating=",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "search"],
+              "query": [
+                { "key": "name",     "value": "", "description": "Search by restaurant name (partial match)" },
+                { "key": "location", "value": "", "description": "Search by location (partial match)" },
+                { "key": "dish",     "value": "", "description": "Search by dish name available at restaurant" },
+                { "key": "rating",   "value": "", "description": "Filter by minimum rating" }
+              ]
+            },
+            "description": "Search restaurants by name, location, dish, or rating.\nAll parameters are optional — leave blank to return all restaurants.\n\nReads from: data/restaurants.json + data/dishes.json\n\n✅ Always returns: 200 OK with a list (empty list if no match)"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "02 – Dish Module",
+      "description": "Manage dishes for a restaurant. The restaurant must exist before adding dishes. Copy dish_id from the response into the environment variable.",
+      "item": [
+
+        {
+          "name": "Add Dish",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Auto-save dish_id to environment after adding",
+                  "if (pm.response.code === 201) {",
+                  "    const json = pm.response.json();",
+                  "    pm.environment.set('dish_id', json.dish_id);",
+                  "    console.log('dish_id saved:', json.dish_id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Butter Chicken\",\n  \"type\": \"Non-Veg\",\n  \"price\": 320.00,\n  \"available_time\": \"11:00-23:00\",\n  \"image\": \"butter_chicken.jpg\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/{{restaurant_id}}/dishes",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "{{restaurant_id}}", "dishes"]
+            },
+            "description": "Add a new dish to a restaurant.\n\nSaved to: data/dishes.json\nNew dish is enabled by default.\n\nRequired fields: name, type, price\nOptional fields: available_time, image\n\n✅ Success: 201 Created\n❌ Missing/invalid fields: 400 Bad Request\n❌ Restaurant not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Update Dish",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Butter Chicken Special\",\n  \"price\": 350.00,\n  \"available_time\": \"10:00-23:30\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/dishes/{{dish_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "dishes", "{{dish_id}}"]
+            },
+            "description": "Update any fields of an existing dish.\n\nSaved to: data/dishes.json\nOnly provided fields will be updated.\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Enable Dish",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/dishes/{{dish_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "dishes", "{{dish_id}}", "status"]
+            },
+            "description": "Enable a dish so it is available for ordering.\n\nUpdated in: data/dishes.json  →  enabled: true\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Disable Dish",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": false\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/dishes/{{dish_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "dishes", "{{dish_id}}", "status"]
+            },
+            "description": "Disable a dish (e.g. out of stock).\n\nUpdated in: data/dishes.json  →  enabled: false\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Delete Dish",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/dishes/{{dish_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "dishes", "{{dish_id}}"]
+            },
+            "description": "Permanently delete a dish.\n\nRemoved from: data/dishes.json\n\n✅ Success: 200 OK  { \"message\": \"Dish deleted\" }\n❌ Not found: 404 Not Found"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "03 – Admin Module",
+      "description": "Admin actions. A restaurant must be approved before customers can place orders.",
+      "item": [
+
+        {
+          "name": "Approve Restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/restaurants/{{restaurant_id}}/approve",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "restaurants", "{{restaurant_id}}", "approve"]
+            },
+            "description": "Admin approves a pending restaurant.\n\nUpdated in: data/restaurants.json  →  status: 'approved'\n\n✅ Success: 200 OK  { \"message\": \"Restaurant approved\" }\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "Admin Disable Restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/restaurants/{{restaurant_id}}/disable",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "restaurants", "{{restaurant_id}}", "disable"]
+            },
+            "description": "Admin disables a restaurant.\n\nUpdated in: data/restaurants.json  →  status: 'disabled', enabled: false\n\n✅ Success: 200 OK\n❌ Not found: 404 Not Found"
+          }
+        },
+
+        {
+          "name": "View All Customer Feedback",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/feedback",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "feedback"]
+            },
+            "description": "View all customer ratings and feedback.\n\nReads from: data/ratings.json\n\n✅ Always returns: 200 OK with a list"
+          }
+        },
+
+        {
+          "name": "View All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "orders"]
+            },
+            "description": "View all orders across the platform.\n\nReads from: data/orders.json\n\n✅ Always returns: 200 OK with a list"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "04 – User / Customer Module",
+      "description": "Customer-facing actions: register, search, order, and rate.",
+      "item": [
+
+        {
+          "name": "Register User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Auto-save user_id to environment after registration",
+                  "if (pm.response.code === 201) {",
+                  "    const json = pm.response.json();",
+                  "    pm.environment.set('user_id', json.user_id);",
+                  "    console.log('user_id saved:', json.user_id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arjun Kumar\",\n  \"email\": \"arjun@example.com\",\n  \"password\": \"Arjun@123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "register"]
+            },
+            "description": "Register a new customer.\n\nSaved to: data/users.json\nPassword is stored but NOT returned in the response.\n\nRequired fields: name, email, password\n\n✅ Success: 201 Created\n❌ Missing fields: 400 Bad Request\n❌ Duplicate email: 409 Conflict"
+          }
+        },
+
+        {
+          "name": "Search Restaurants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/search?name=&location=&dish=",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "search"],
+              "query": [
+                { "key": "name",     "value": "", "description": "Filter by restaurant name" },
+                { "key": "location", "value": "", "description": "Filter by location" },
+                { "key": "dish",     "value": "", "description": "Filter by available dish name" }
+              ]
+            },
+            "description": "Search for restaurants.\nLeave all parameters empty to list everything.\n\n✅ Always returns: 200 OK"
+          }
+        },
+
+        {
+          "name": "Place Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Auto-save order_id to environment after placing",
+                  "if (pm.response.code === 201) {",
+                  "    const json = pm.response.json();",
+                  "    pm.environment.set('order_id', json.order_id);",
+                  "    console.log('order_id saved:', json.order_id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"restaurant_id\": \"{{restaurant_id}}\",\n  \"dishes\": [\"{{dish_id}}\"]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "orders"]
+            },
+            "description": "Place an order.\n\nSaved to: data/orders.json\nOrder status is set to 'placed'.\n\nRequired fields: user_id, restaurant_id, dishes (non-empty array of dish IDs)\n\nTip: The dishes array can contain multiple dish IDs:\n  \"dishes\": [\"dish_id_1\", \"dish_id_2\"]\n\n✅ Success: 201 Created\n❌ Missing/empty fields: 400 Bad Request"
+          }
+        },
+
+        {
+          "name": "Give Rating",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Auto-save rating_id to environment",
+                  "if (pm.response.code === 201) {",
+                  "    const json = pm.response.json();",
+                  "    pm.environment.set('rating_id', json.rating_id);",
+                  "    console.log('rating_id saved:', json.rating_id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_id\": \"{{order_id}}\",\n  \"rating\": 5,\n  \"comment\": \"Excellent food and fast delivery!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/ratings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "ratings"]
+            },
+            "description": "Submit a rating for a completed order.\n\nSaved to: data/ratings.json\nRating must be between 1 and 5.\n\nRequired fields: order_id, rating (1-5), comment\n\n✅ Success: 201 Created\n❌ Rating out of range or missing fields: 400 Bad Request"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "05 – Order Module",
+      "description": "View orders — filtered by restaurant or by user.",
+      "item": [
+
+        {
+          "name": "View Orders by Restaurant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/restaurants/{{restaurant_id}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "restaurants", "{{restaurant_id}}", "orders"]
+            },
+            "description": "Get all orders placed at a specific restaurant.\n\nReads from: data/orders.json  (filtered by restaurant_id)\n\n✅ Always returns: 200 OK with a list"
+          }
+        },
+
+        {
+          "name": "View Orders by User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/{{user_id}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "{{user_id}}", "orders"]
+            },
+            "description": "Get all orders placed by a specific user.\n\nReads from: data/orders.json  (filtered by user_id)\n\n✅ Always returns: 200 OK with a list"
+          }
+        }
+      ]
+    }
+
+  ]
+}

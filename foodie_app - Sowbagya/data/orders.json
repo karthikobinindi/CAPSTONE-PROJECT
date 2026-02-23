@@ -1,0 +1,76 @@
+{
+  "orders": [
+    {
+      "order_id": "1a2913a8-a598-4ed1-b70d-d775ca834576",
+      "user_id": "82c75ab6-b4a7-4c99-9f81-bfc7868e8c8e",
+      "restaurant_id": "2af06e6c-a4ef-40ed-a0a0-c04bbe7a9fee",
+      "dishes": [
+        "5bb45059-e18d-4856-b1c2-1ffdfb7061b5"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "c336c377-19a9-4ce1-a088-a0f2a8aeffe6",
+      "user_id": "82c75ab6-b4a7-4c99-9f81-bfc7868e8c8e",
+      "restaurant_id": "2af06e6c-a4ef-40ed-a0a0-c04bbe7a9fee",
+      "dishes": [
+        "5bb45059-e18d-4856-b1c2-1ffdfb7061b5"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "627728df-851c-45bd-bbd2-011192534e85",
+      "user_id": "82c75ab6-b4a7-4c99-9f81-bfc7868e8c8e",
+      "restaurant_id": "2af06e6c-a4ef-40ed-a0a0-c04bbe7a9fee",
+      "dishes": [
+        "5bb45059-e18d-4856-b1c2-1ffdfb7061b5"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "c2dc6fde-4935-4b6d-ae91-ed809dd12d3b",
+      "user_id": "6763b2f9-ebce-4c42-80e8-45b56d82b7ac",
+      "restaurant_id": "c5a8860e-4aec-436b-9bad-e80a9abebf25",
+      "dishes": [
+        "8bb5b5b0-d45a-43f9-8a19-2595045effac"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "cc60ce63-1ade-4a90-8e8c-541d1d20c013",
+      "user_id": "1b0a36a0-7e46-47c1-bfb2-d277b03a3985",
+      "restaurant_id": "7bccce17-e681-4303-9ba5-ad99dc78b6f7",
+      "dishes": [
+        "df1fe52f-8641-406e-b4bc-87771f6b2689"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "ac537678-299f-4fef-a254-c0f547b3c78e",
+      "user_id": "70443276-270d-4c79-9514-8dcb647ce61f",
+      "restaurant_id": "239e6b75-a940-4ec5-8788-81516eff24f1",
+      "dishes": [
+        "3a107a78-9fcd-4f73-a5b8-bb7f5bb9cf8a"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "fb77cf2b-0718-432c-b964-68b03471b734",
+      "user_id": "4c9be100-053e-4924-a1d1-e90da4f16ceb",
+      "restaurant_id": "d3a5ddae-6bb2-4e7a-aef5-43225f32d88b",
+      "dishes": [
+        "9eaa885b-15a3-4e3f-9c99-a7c231fce891"
+      ],
+      "status": "placed"
+    },
+    {
+      "order_id": "1d8179b2-363b-4ca1-9d2a-8de7e67a2fd5",
+      "user_id": "a5a70a7d-1991-4734-9371-a682cc3ee125",
+      "restaurant_id": "c8c65f70-09ff-430d-9ad7-04cde0d0a541",
+      "dishes": [
+        "ade98491-3006-4519-becb-5815302f3f0e"
+      ],
+      "status": "placed"
+    }
+  ]
+}
